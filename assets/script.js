@@ -21,9 +21,9 @@ function generatePassword () {
   var passwordLength = prompt("Enter the desired password length between 8 and 128");
 
   // while loop to check for length
-  while (passwordLength < 8 || passwordLength >128) {
+  while (passwordLength < 8 || passwordLength > 128) {
     alert("Password length must between between 8 and 128 characters.")
-    prompt("Please choose a number between 8 and 128");
+    passwordLength = prompt("Please choose a number between 8 and 128");
   }
 
   // password options
@@ -34,9 +34,40 @@ function generatePassword () {
   var includeUpperCase = false;
   var includeNumbers = false;
   var includeSpecialCharacters = false;
-}
 
-// validate password length
+  while (!includeLowerCase && !includeUpperCase && !includeNumbers && !includeSpecialCharacters) {
+    includeLowerCase = confirm ("Include lowercase letters?");
+    includeUpperCase = confirm ("Include uppercase?");
+    includeNumbers = confirm ("Include numbers?");
+    includeSpecialCharacters = confirm ("Include special characters?");
+
+    // must choose at least one type
+    if (!includeLowerCase && !includeUpperCase && !includeNumbers && !includeSpecialCharacters) {
+      alert("Please pick at least one character type.")
+    }
+  }
+  // if chosen add to character
+  if (includeLowerCase) {
+    characters += lowerCaseLetters;
+  }
+  if (includeUpperCase) {
+    characters += upperCaseLetters;
+  }
+  if (includeNumbers) {
+    characters += includeNumbers;
+  }
+  if (includeSpecialCharacters) {
+    characters = includeSpecialCharacters
+  }
+
+  // 
+  for (var i = 0; i <passwordLength; i++) {
+    var randomIndex = Math.floor(Math.random() * characters.length);
+    password += characters.charAt(randomIndex);
+
+  }
+  return password;
+}
 
 
 // Add event listener to generate button

@@ -11,4 +11,4 @@ Thank you to my DU professor, TAs, and fellow students. Thanks to MDN and W#Scho
 
 Deployed site: https://alester77.github.io/PasswordGen/
 
-![Image of website](../assets/images/screenshot.png)
+![Image of website](./assets/images/screenshot.png)

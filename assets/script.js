@@ -29,7 +29,7 @@ function generatePassword () {
   // password options
 
   var password = "";
-  var characters = ""
+  var characters = "";
   var includeLowerCase = false;
   var includeUpperCase = false;
   var includeNumbers = false;
@@ -49,15 +49,19 @@ function generatePassword () {
   // if chosen add to character
   if (includeLowerCase) {
     characters += lowerCaseLetters;
+    password += getRandomCharacter(lowerCaseLetters);
   }
   if (includeUpperCase) {
     characters += upperCaseLetters;
+    password += getRandomCharacter(upperCaseLetters);
   }
   if (includeNumbers) {
-    characters += includeNumbers;
+    characters += numbers;
+    password += getRandomCharacter(numbers);
   }
   if (includeSpecialCharacters) {
-    characters = includeSpecialCharacters
+    characters = specialCharacters
+    password += getRandomCharacter(specialCharacters);
   }
 
   // 
@@ -66,6 +70,13 @@ function generatePassword () {
     password += characters.charAt(randomIndex);
 
   }
+  
+  // makes sure at least one chosen of each selected option is displayed
+  function getRandomCharacter(characterSet) {
+    var randomIndex = Math.floor(Math.random() * characterSet.length);
+    return characterSet.charAt(randomIndex);
+  }
+
   return password;
 }
 

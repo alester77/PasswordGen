@@ -17,7 +17,24 @@ function writePassword() {
 }
 
 // generate password function
+function generatePassword () {
+  var passwordLength = prompt("Enter the desired password length between 8 and 128");
 
+  // while loop to check for length
+  while (passwordLength < 8 || passwordLength >128) {
+    alert("Password length must between between 8 and 128 characters.")
+    prompt("Please choose a number between 8 and 128");
+  }
+
+  // password options
+
+  var password = "";
+  var characters = ""
+  var includeLowerCase = false;
+  var includeUpperCase = false;
+  var includeNumbers = false;
+  var includeSpecialCharacters = false;
+}
 
 // validate password length
 
